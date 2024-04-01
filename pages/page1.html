@@ -1,0 +1,162 @@
+<!-- pages/page1.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demographics</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Water Consumer Survey</h1>
+        <nav>
+            <a href="page1.html">Demographics</a>
+         
+            <a href="page4.html">Feedback and Contact info</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="demographics-section">
+            <h2>Demographics Information</h2>
+            <form id="demographics-form" method="post" action="https://script.google.com/macros/s/AKfycbw9QsMO74-qm_4H16jizPBtPaYVDLaLpmLk66Tdv_TMev9DGvlk6LBnjCCxOifXe9c_/exec">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="residence">Type of Residence:</label>
+                <select id="residence" name="residence" required>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="hut">Hut</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="water-source">How do you primarily source your water?</label>
+                <select id="water-source" name="water-source" required>
+                    <option value="municipal">Municipal Water Supply</option>
+                    <option value="well">Well Water</option>
+                    <option value="bottled">Bottled Water</option>
+                    <option value="other">Other (please specify)</option>
+                </select>
+
+                <label for="daily-consumption">On average, how many gallons of water does your household consume per day?</label>
+                <input type="number" id="daily-consumption" name="daily-consumption" required>
+
+                <label for="conservation-methods">Do you use any water conservation methods at home?</label>
+                <select id="conservation-methods" name="conservation-methods" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="not-sure">Not Sure</option>
+                </select>
+
+                <label for="satisfaction">How satisfied are you with the quality of your tap water?</label>
+                <select id="satisfaction" name="satisfaction" required>
+                    <option value="very-satisfied">Very Satisfied</option>
+                    <option value="satisfied">Satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                    <option value="very-dissatisfied">Very Dissatisfied</option>
+                </select>
+
+                <label for="tested-contaminants">Have you ever tested your tap water for contaminants?</label>
+                <select id="tested-contaminants" name="tested-contaminants" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="found-contaminants">If yes, what contaminants were found, if any?</label>
+                <input type="text" id="found-contaminants" name="found-contaminants">
+
+
+
+                <label for="use-filtration">Do you use any water filtration systems at home?</label>
+                <select id="use-filtration" name="use-filtration" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="filtration-type">If yes, what type of water filtration system do you use?</label>
+                <input type="text" id="filtration-type" name="filtration-type">
+
+                <label for="water-saving-appliances">Are you aware of and have you used water-saving appliances or fixtures?</label>
+                <select id="water-saving-appliances" name="water-saving-appliances" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="purchase-frequency">How often do you purchase bottled water?</label>
+                <select id="purchase-frequency" name="purchase-frequency" required>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="never">Never</option>
+                </select>
+
+                <label for="influence-factors">What factors influence your choice of bottled water brand?</label>
+                <input type="text" id="influence-factors" name="influence-factors">
+
+
+                <label for="awareness-level">How aware are you of water conservation issues in your area?</label>
+                <select id="awareness-level" name="awareness-level" required>
+                    <option value="very-aware">Very Aware</option>
+                    <option value="somewhat-aware">Somewhat Aware</option>
+                    <option value="not-very-aware">Not Very Aware</option>
+                    <option value="not-aware-at-all">Not Aware at All</option>
+                </select>
+
+                <label for="participation">Have you participated in any water conservation initiatives or campaigns?</label>
+                <select id="participation" name="participation" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+
+                 
+
+
+
+
+
+
+                <button type="submit" value="Submit" id="submit">Next</button>
+
+            </form>
+            <h id="data"></h>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Water Consumer Survey</p>
+    </footer>
+    <script>
+    
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw9QsMO74-qm_4H16jizPBtPaYVDLaLpmLk66Tdv_TMev9DGvlk6LBnjCCxOifXe9c_/exec'
+
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+ e.preventDefault()
+ fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+ .then(response => alert("Thank you! your form is submitted successfully." ))
+ .then(() => { window.location.reload(); })
+ .catch(error => console.error('Error!', error.message))
+})
+
+
+
+    </script>
+</body>
+</html>
